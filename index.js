@@ -30,20 +30,20 @@ app.use(cors())
 let notes = [
   {
     id: 1,
-    content: "HTML is easy",
-    date: "2019-05-30T17:30:31.098Z",
+    content: 'HTML is easy',
+    date: '2019-05-30T17:30:31.098Z',
     important: true
   },
   {
     id: 2,
-    content: "Browser can execute only Javascript",
-    date: "2019-05-30T18:39:34.091Z",
+    content: 'Browser can execute only Javascript',
+    date: '2019-05-30T18:39:34.091Z',
     important: false
   },
   {
     id: 3,
-    content: "GET and POST are the most important methods of HTTP protocol",
-    date: "2019-05-30T19:20:14.298Z",
+    content: 'GET and POST are the most important methods of HTTP protocol',
+    date: '2019-05-30T19:20:14.298Z',
     important: true
   }
 ]
@@ -76,12 +76,12 @@ const generateId = () => {
 }
 
 app.put('/api/notes/:id', (request, response, next) => {
-  const body = request.body;
+  const body = request.body
   const note = {
     content: body.content,
     important: body.important,
   }
-  
+
   Note.findByIdAndUpdate(request.params.id, note, { new: true })
     .then(updatedNote => response.json(updatedNote))
     .catch(error => next(error))
